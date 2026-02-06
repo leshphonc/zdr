@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     
     public float speed;
-    
     public float jumpForce;
     
     
@@ -20,6 +19,7 @@ public class PlayerController : MonoBehaviour
     [Header("State Check")]
     public bool isGround;
     public bool isJump;
+    public bool canJump;
     
     
     
@@ -37,16 +37,16 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        PhysicsCheck();
         Movement();
         Jump();
-        PhysicsCheck();
     }
 
     void CheckInput()
     {
         if (Input.GetButtonDown("Jump") && isGround)
         {
-            isJump = true;
+            canJump = true;
         }
     }
     
@@ -64,10 +64,11 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if (isJump)
+        if (canJump)
         {
+            isJump = true;
             rb.velocity = new Vector2(rb.velocity.x,  jumpForce);
-            isJump = false;
+            canJump = false;
         }
         
     }
