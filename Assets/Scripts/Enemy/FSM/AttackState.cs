@@ -6,15 +6,14 @@ public class AttackState : EnemyBaseState
 {
     public override void EnterState(Enemy enemy)
     {
+        enemy.animState = 2;
         enemy.targetPoint = enemy.attackList[0];
     }
 
     public override void OnUpdate(Enemy enemy)
     {
         if (enemy.attackList.Count == 0)
-        {
             enemy.TransitionToState(enemy.PatrolState);
-        }
 
         if (enemy.attackList.Count > 1)
         {
@@ -27,6 +26,8 @@ public class AttackState : EnemyBaseState
                 }
             }
         }
+        else if(enemy.attackList.Count == 1)
+            enemy.targetPoint = enemy.attackList[0];
         
         if (enemy.targetPoint.CompareTag("Player"))
             enemy.AttackAction();

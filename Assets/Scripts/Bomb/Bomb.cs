@@ -30,10 +30,14 @@ public class Bomb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time - startTime > waitTime)
+        if (!_anim.GetCurrentAnimatorStateInfo(0).IsName("bomb_off"))
         {
-            _anim.Play("bomb_explosion");
+            if (Time.time - startTime > waitTime)
+            {
+                _anim.Play("bomb_explosion");
+            } 
         }
+       
     }
 
     public void OnDrawGizmos()
@@ -52,11 +56,30 @@ public class Bomb : MonoBehaviour
         {
             Vector3 pos = transform.position - item.transform.position;
             item.GetComponent<Rigidbody2D>().AddForce((-pos+ Vector3.up)*bombForce, ForceMode2D.Impulse);
+
+            if (item.CompareTag("Bomb") && item.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("bomb_off"))
+            {
+                item.GetComponent<Bomb>().TurnOn();
+            }
         }
     }
     
     public void DestoryThis()
     {
         Destroy(gameObject);
+    }
+
+    public void TurnOff()
+    {
+        _anim.Play("bomb_off");
+        gameObject.layer = LayerMask.NameToLayer("NPC");
+    }
+
+
+    public void TurnOn()
+    {
+        _anim.Play("bomb_on");
+        gameObject.layer = LayerMask.NameToLayer("Bomb");
+        startTime = Time.time;
     }
 }

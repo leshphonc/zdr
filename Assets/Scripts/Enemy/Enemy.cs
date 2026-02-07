@@ -19,6 +19,13 @@ public class Enemy : MonoBehaviour
 
     public readonly PatrolState PatrolState = new PatrolState();
     public readonly AttackState AttackState = new AttackState();
+    
+    
+    [Header("Attack Setting")]
+    public float attackRate;
+    public float attackRange, skillRange;
+
+    private float nextAttack = 0;
 
     public virtual void Init()
     {
@@ -76,12 +83,28 @@ public class Enemy : MonoBehaviour
 
     public virtual void SkillAction()
     {
-        Debug.Log("技能攻击");
+        if (Vector2.Distance(transform.position, targetPoint.position) < skillRange)
+        {
+            if (Time.time > nextAttack)
+            {
+                // 播放攻击
+                anim.SetTrigger("skill");
+                nextAttack = Time.time + attackRange;
+            }
+        }
     }
 
     public virtual void AttackAction()
     {
-        Debug.Log("普通攻击");
+        if (Vector2.Distance(transform.position, targetPoint.position) < attackRange)
+        {
+            if (Time.time > nextAttack)
+            {
+                // 播放攻击
+                anim.SetTrigger("attack");
+                nextAttack = Time.time + attackRange;
+            }
+        }
     }
 
 
