@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,13 @@ public class Enemy : MonoBehaviour
     
     public Animator anim;
     public int animState;
+    
+    [Header("Enemy State")]
+    public float health;
+    public bool isDead;
+
+    private GameObject _alarmSign;
+    
     [Header("Movement")]
     public Transform pointA;
     public Transform pointB;
@@ -30,6 +38,7 @@ public class Enemy : MonoBehaviour
     public virtual void Init()
     {
         anim = GetComponent<Animator>();
+        _alarmSign = transform.GetChild(0).gameObject;
     }
 
     public void Awake()
@@ -44,6 +53,9 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        anim.SetBool("dead", isDead);
+        if (isDead)
+            return;
         _currentState.OnUpdate(this);
         anim.SetInteger("state", animState);
     }
@@ -119,4 +131,18 @@ public class Enemy : MonoBehaviour
     {
         attackList.Remove(other.transform);
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        StartCoroutine(OnAlarm());
+    }
+
+
+    IEnumerator OnAlarm()
+    {
+        _alarmSign.SetActive(true);
+        yield return new WaitForSeconds(_alarmSign.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.length);
+        _alarmSign.SetActive(false);
+    }
+    
 }

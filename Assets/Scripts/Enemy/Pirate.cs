@@ -1,11 +1,12 @@
-
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Cucumber: Enemy,IDamageable
+public class Pirate : Enemy,IDamageable
 {
-    public void SetOff()
+    public override void SkillAction()
     {
-        targetPoint.GetComponent<Bomb>()?.TurnOff();
+        base.SkillAction();
     }
 
     public void GetHit(float damage)

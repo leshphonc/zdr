@@ -21,17 +21,17 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: b8358a91321294a23bb1e3010bc0f62f, type: 3}
-    - time: 0.05
-      value: {fileID: 21300000, guid: 4ae68589ca43747ac8f37be50095d078, type: 3}
-    - time: 0.1
-      value: {fileID: 21300000, guid: 05daf9564070f43a3bc734aa03ef1e9f, type: 3}
-    - time: 0.15
       value: {fileID: 21300000, guid: fd3b1cef8ca354ccf83ac8b21137ce5a, type: 3}
-    - time: 0.2
+    - time: 0.05
+      value: {fileID: 21300000, guid: b8358a91321294a23bb1e3010bc0f62f, type: 3}
+    - time: 0.1
       value: {fileID: 21300000, guid: 229d11287607a4b6186df3612c90fe5f, type: 3}
-    - time: 0.25
+    - time: 0.15
+      value: {fileID: 21300000, guid: 4ae68589ca43747ac8f37be50095d078, type: 3}
+    - time: 0.2
       value: {fileID: 21300000, guid: 1e337c9cc8a644418985f78a97601d5a, type: 3}
+    - time: 0.25
+      value: {fileID: 21300000, guid: 05daf9564070f43a3bc734aa03ef1e9f, type: 3}
     - time: 0.3
       value: {fileID: 21300000, guid: 802cc28a864834c7abf00c31b514f5e7, type: 3}
     - time: 0.35
@@ -58,12 +58,12 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: b8358a91321294a23bb1e3010bc0f62f, type: 3}
-    - {fileID: 21300000, guid: 4ae68589ca43747ac8f37be50095d078, type: 3}
-    - {fileID: 21300000, guid: 05daf9564070f43a3bc734aa03ef1e9f, type: 3}
     - {fileID: 21300000, guid: fd3b1cef8ca354ccf83ac8b21137ce5a, type: 3}
+    - {fileID: 21300000, guid: b8358a91321294a23bb1e3010bc0f62f, type: 3}
     - {fileID: 21300000, guid: 229d11287607a4b6186df3612c90fe5f, type: 3}
+    - {fileID: 21300000, guid: 4ae68589ca43747ac8f37be50095d078, type: 3}
     - {fileID: 21300000, guid: 1e337c9cc8a644418985f78a97601d5a, type: 3}
+    - {fileID: 21300000, guid: 05daf9564070f43a3bc734aa03ef1e9f, type: 3}
     - {fileID: 21300000, guid: 802cc28a864834c7abf00c31b514f5e7, type: 3}
     - {fileID: 21300000, guid: d10060ce35a0e41719539c4d82475ad3, type: 3}
   m_AnimationClipSettings:
