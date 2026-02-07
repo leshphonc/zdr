@@ -268,6 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f4954c120128df45a5ebc5b37ba89e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bombAvailable: 1
 --- !u!1 &5257938679484039841
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,6 +590,7 @@ MonoBehaviour:
   animState: 0
   health: 33
   isDead: 0
+  hasBomb: 0
   pointA: {fileID: 4722315310229198229}
   pointB: {fileID: 5802176927696124820}
   targetPoint: {fileID: 0}

@@ -17,21 +17,67 @@ AnimationClip:
   m_PositionCurves: []
   m_ScaleCurves: []
   m_FloatCurves: []
-  m_PPtrCurves: []
-  m_SampleRate: 60
+  m_PPtrCurves:
+  - serializedVersion: 2
+    curve:
+    - time: 0
+      value: {fileID: 21300000, guid: ff73b41e708c54529be7a6c5fec7d429, type: 3}
+    - time: 0.05
+      value: {fileID: 21300000, guid: 7ccda85e642cc4fb2bbd29fab48717aa, type: 3}
+    - time: 0.1
+      value: {fileID: 21300000, guid: 26de525d24c11403889d98822286c8bf, type: 3}
+    - time: 0.15
+      value: {fileID: 21300000, guid: e0d39b0fa2f41453b958865004cc39e3, type: 3}
+    - time: 0.2
+      value: {fileID: 21300000, guid: ca2d2d19c29254bdeb39fc911c793c86, type: 3}
+    - time: 0.25
+      value: {fileID: 21300000, guid: f03313e9861924715b72adcbce0354b2, type: 3}
+    - time: 0.3
+      value: {fileID: 21300000, guid: f1dc8dc3e1c3b4799b3d7143831d7348, type: 3}
+    - time: 0.35
+      value: {fileID: 21300000, guid: 9c7a1ecaa4a4d40e29239d81aeac6503, type: 3}
+    - time: 0.4
+      value: {fileID: 21300000, guid: c27e3e17d68d341969c7e7d44f3ae77f, type: 3}
+    - time: 0.45
+      value: {fileID: 21300000, guid: 69f4356c66b3c46b7b11227c7f116b80, type: 3}
+    attribute: m_Sprite
+    path: 
+    classID: 212
+    script: {fileID: 0}
+    flags: 2
+  m_SampleRate: 20
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
-    genericBindings: []
-    pptrCurveMapping: []
+    genericBindings:
+    - serializedVersion: 2
+      path: 0
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
+    pptrCurveMapping:
+    - {fileID: 21300000, guid: ff73b41e708c54529be7a6c5fec7d429, type: 3}
+    - {fileID: 21300000, guid: 7ccda85e642cc4fb2bbd29fab48717aa, type: 3}
+    - {fileID: 21300000, guid: 26de525d24c11403889d98822286c8bf, type: 3}
+    - {fileID: 21300000, guid: e0d39b0fa2f41453b958865004cc39e3, type: 3}
+    - {fileID: 21300000, guid: ca2d2d19c29254bdeb39fc911c793c86, type: 3}
+    - {fileID: 21300000, guid: f03313e9861924715b72adcbce0354b2, type: 3}
+    - {fileID: 21300000, guid: f1dc8dc3e1c3b4799b3d7143831d7348, type: 3}
+    - {fileID: 21300000, guid: 9c7a1ecaa4a4d40e29239d81aeac6503, type: 3}
+    - {fileID: 21300000, guid: c27e3e17d68d341969c7e7d44f3ae77f, type: 3}
+    - {fileID: 21300000, guid: 69f4356c66b3c46b7b11227c7f116b80, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 3
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1
+    m_StopTime: 0.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -54,7 +100,14 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.3
+    functionName: Swallow
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   m_Intervals: []
   m_ACLContext:
     ACLCompressionLevel: 0

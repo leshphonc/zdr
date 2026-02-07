@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     [Header("Enemy State")]
     public float health;
     public bool isDead;
+    public bool hasBomb;
 
     private GameObject _alarmSign;
     
@@ -51,7 +52,7 @@ public class Enemy : MonoBehaviour
         TransitionToState(PatrolState);
     }
 
-    void Update()
+  public  virtual void Update()
     {
         anim.SetBool("dead", isDead);
         if (isDead)
@@ -93,6 +94,19 @@ public class Enemy : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, 180f, 0f);
     }
 
+    public virtual void AttackAction()
+    {
+        if (Vector2.Distance(transform.position, targetPoint.position) < attackRange)
+        {
+            if (Time.time > nextAttack)
+            {
+                // 播放攻击
+                anim.SetTrigger("attack");
+                nextAttack = Time.time + attackRange;
+            }
+        }
+    }
+    
     public virtual void SkillAction()
     {
         if (Vector2.Distance(transform.position, targetPoint.position) < skillRange)
@@ -106,23 +120,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public virtual void AttackAction()
-    {
-        if (Vector2.Distance(transform.position, targetPoint.position) < attackRange)
-        {
-            if (Time.time > nextAttack)
-            {
-                // 播放攻击
-                anim.SetTrigger("attack");
-                nextAttack = Time.time + attackRange;
-            }
-        }
-    }
-
-
     public void OnTriggerStay2D(Collider2D other)
     {
-        if (!attackList.Contains(other.transform))
+        if (!attackList.Contains(other.transform) && !hasBomb && !isDead)
             attackList.Add(other.transform);
     }
 
@@ -134,7 +134,8 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        StartCoroutine(OnAlarm());
+        if (!isDead)
+            StartCoroutine(OnAlarm());
     }
 
 
